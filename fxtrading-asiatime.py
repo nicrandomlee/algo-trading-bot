@@ -112,7 +112,7 @@ if __name__ == "__main__": # if you run trader.py as python script
     # stop trading session
     while True:
         ib.sleep(5) # check every 5 seconds
-        if dt.datetime.utcnow().time() >= end_time: # if stop conditions has been met
+        if dt.datetime.now(tz).time() >= end_time: # if stop conditions has been met
             execute_trade(target = 0) # close open position 
             ib.cancelHistoricalData(bars) # stop stream
             ib.sleep(10)
